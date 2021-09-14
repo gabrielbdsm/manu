@@ -37,11 +37,11 @@ route("/criarUser", method = POST) do
     if (verifcar_num(cpf) == false ) || (length(cpf) != 11)
       return "CPF invalido"
     
-    elseif test_bd.verificar_existencia("cpf",cpf) == true
+    elseif bd_cadrato.verificar_existencia("cpf",cpf) == true
     
       return "CPF já cadrastado"
 
-    elseif test_bd.verificar_existencia("email",email) == true
+    elseif bd_cadrato.verificar_existencia("email",email) == true
       return "email já cadrastado"
     
     #elseif confir_Email.enviar_email(email) != codigo 
@@ -50,7 +50,7 @@ route("/criarUser", method = POST) do
     elseif (verifcar_num(telefone) == false ) || (length(telefone) != 11)
         return "telefone invalido"
 
-    elseif test_bd.verificar_existencia("telefone",telefone) == true
+    elseif bd_cadrato.verificar_existencia("telefone",telefone) == true
     
       return "telefone já cadrastado"
 
@@ -61,7 +61,7 @@ route("/criarUser", method = POST) do
         return "senha deve conter 6 numero "
 
     else
-      test_bd.insert(cpf , nome , senha, email , telefone ,senha_cartao)
+      bd_cadrato.insert(cpf , nome , senha, email , telefone ,senha_cartao)
       # dados = test_bd.consultar("cpf" , cpf)
       # bd_endereco.inseir_id(dados.id_cliente)
       # conta.inseir_id(dados.id_cliente)
