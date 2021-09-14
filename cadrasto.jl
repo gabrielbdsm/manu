@@ -5,7 +5,7 @@ using MySQL
 using JSON
 using DataFrames
 using JSONTables
-#include("bd_cadrato.jl")
+include("bd_cadrato.jl")
 #include("bd_endereco.jl")
 #include("endereco.jl")
 #include("conta.jl")
