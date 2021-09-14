@@ -45,7 +45,7 @@ route("/criarUser", method = POST) do
       return "email já cadrastado"
     
     #elseif confir_Email.enviar_email(email) != codigo 
-      return "codigo de confirmação incorreto"
+      # return "codigo de confirmação incorreto"
 
     elseif (verifcar_num(telefone) == false ) || (length(telefone) != 11)
         return "telefone invalido"
