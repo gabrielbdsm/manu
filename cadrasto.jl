@@ -3,7 +3,7 @@ using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
 using JSON
 using JSONTables
-include("bd_cadrato.jl")
+#include("bd_cadrato.jl")
 #include("bd_endereco.jl")
 #include("endereco.jl")
 #include("conta.jl")
