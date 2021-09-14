@@ -1,4 +1,4 @@
-module test_bd
+module bd_cadrato
     
 using MySQL
 using DBInterface
