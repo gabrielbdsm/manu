@@ -6,7 +6,7 @@ Pkg.add("JSON")
 Pkg.add("DataFrames")
 Pkg.add("JSONTables")
 Pkg.add("DBInterface")
-using MySQL
+#using MySQL
 using JSON
 using DataFrames
 using JSONTables
