@@ -4,7 +4,7 @@ using MySQL
 using DBInterface
 using DataFrames
 
-db = DBInterface.connect(MySQL.Connection, "127.0.0.1", "root", "gabriel2808" , port=3306)
+db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306)
 try
     DBInterface.execute(db, "CREATE DATABASE test")
     
