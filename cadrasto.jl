@@ -17,6 +17,10 @@ include("bd_cadrato.jl")
 #include("confir_Email.jl")
 
 
+route("/") do
+    "servidor conectado"
+  end
+
 
 route("/criarUser", method = POST) do 
     cpf = postpayload(:cpf)
