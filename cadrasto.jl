@@ -1,11 +1,6 @@
+include("pacotes.jl")
 using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
-using Pkg
-Pkg.add("MySQL")
-Pkg.add("JSON")
-Pkg.add("DataFrames")
-Pkg.add("JSONTables")
-Pkg.add("DBInterface")
 using MySQL
 using JSON
 using DataFrames
