@@ -65,7 +65,7 @@ route("/criarUser", method = POST) do
       # dados = test_bd.consultar("cpf" , cpf)
       # bd_endereco.inseir_id(dados.id_cliente)
       # conta.inseir_id(dados.id_cliente)
-  #  end
+   end
     return "POST OK"
 
 end
