@@ -1,14 +1,21 @@
 using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
+using Pkg
+Pkg.add("MySQL")
+Pkg.add("JSON")
+Pkg.add("DataFrames")
+Pkg.add("JSONTables")
+Pkg.add("DBInterface")
+using MySQL
 using JSON
 using DataFrames
 using JSONTables
-#include("bd_cadrato.jl")
-include("bd_endereco.jl")
-include("endereco.jl")
-include("conta.jl")
-include("confir_Email.jl")
-include("test_bd.jl")
+include("bd_cadrato.jl")
+#include("bd_endereco.jl")
+#include("endereco.jl")
+#include("conta.jl")
+#include("confir_Email.jl")
+
 
 
 route("/criarUser", method = POST) do 
@@ -74,6 +81,4 @@ end
 
 
 
-
-up(8002, async = false)
-end
+up(parse(Int64, ENV["PORT"]), "0.0.0.0" ,async = false)
