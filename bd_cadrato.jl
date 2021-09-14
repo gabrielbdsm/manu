@@ -6,12 +6,12 @@ using DataFrames
 
 db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306)
 try
-    DBInterface.execute(db, "CREATE DATABASE test")
+    DBInterface.execute(db, "CREATE DATABASE cliente")
     
 catch
     println("database já esxite")
 end
-DBInterface.execute(db, "use test")
+DBInterface.execute(db, "use cliente")
 DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS dados
 (
     id_cliente INT NOT NULL AUTO_INCREMENT,
