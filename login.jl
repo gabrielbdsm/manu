@@ -1,11 +1,9 @@
 using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
-using SQLite
 using JSON
 using DataFrames
 using JSONTables
-using SQLite
-using DataFrames
+
 include("bd_cadrato.jl")
 include("conta.jl")
 
@@ -36,5 +34,5 @@ route("/login" , method = POST) do
 end
   
   
-up(8001, async = false)
+up(parse(Int64, ENV["PORT"]), "0.0.0.0" ,async = false)
 
