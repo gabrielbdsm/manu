@@ -1,3 +1,4 @@
+module login
 using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
 using JSON
@@ -30,6 +31,9 @@ route("/login" , method = POST) do
     #     return  JSON.json(dados)
     end
         
+end
+
+
 end
   
   
