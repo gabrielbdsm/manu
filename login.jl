@@ -32,10 +32,7 @@ route("/login" , method = POST) do
     end
         
 end
+  
 
 
 end
-  
-  
-#up(parse(Int64, ENV["PORT"]), "0.0.0.0" ,async = false)
-
