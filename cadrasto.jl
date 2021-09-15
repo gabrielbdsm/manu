@@ -4,6 +4,8 @@ using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Ge
 using JSON
 using JSONTables
 using DBInterface
+using MySQL
+
 db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306)
 DBInterface.execute(db, "use heroku_3761ec7676be692")
 include("bd_cadrato.jl")
