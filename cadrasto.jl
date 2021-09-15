@@ -30,22 +30,22 @@ route("/criarUser", method = POST) do
     if (verifcar_num(cpf) == false ) || (length(cpf) != 11)
       return "CPF invalido"
     
-    #elseif bd_cadrato.verificar_existencia("cpf",cpf) == true
+    elseif bd_cadrato.verificar_existencia("cpf",cpf) == true
     
-     # return "CPF já cadrastado"
+         return "CPF já cadrastado"
 
-   # elseif bd_cadrato.verificar_existencia("email",email) == true
-     # return "email já cadrastado"
+    elseif bd_cadrato.verificar_existencia("email",email) == true
+      return "email já cadrastado"
     
-    #elseif confir_Email.enviar_email(email) != codigo 
-      # return "codigo de confirmação incorreto"
+    elseif confir_Email.enviar_email(email) != codigo 
+       return "codigo de confirmação incorreto"
 
     elseif (verifcar_num(telefone) == false ) || (length(telefone) != 11)
         return "telefone invalido"
 
-   # elseif bd_cadrato.verificar_existencia("telefone",telefone) == true
+   elseif bd_cadrato.verificar_existencia("telefone",telefone) == true
     
-     # return "telefone já cadrastado"
+      return "telefone já cadrastado"
 
     elseif length(senha) < 8 
       return "Senha deve conter mais de 8 caracteres"
