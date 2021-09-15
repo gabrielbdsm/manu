@@ -3,9 +3,8 @@ using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Ge
 using JSON
 using DataFrames
 using JSONTables
-
 include("bd_cadrato.jl")
-include("conta.jl")
+#include("conta.jl")
 
 
 #ic-banking-2021 
@@ -20,15 +19,15 @@ route("/login" , method = POST) do
         return "CPF NÃO cadrastada"
     elseif senha != usuario.senha
         return "senha incorreta"
-    else
+    # else
 
-        dados = conta.consultar("id_cliente",11)
-        dados = JSON.json(dados)
-        dados = JSON.Parser.parse(dados)
-        dados["cpf"] = cpf
+    #     dados = conta.consultar("id_cliente",11)
+    #     dados = JSON.json(dados)
+    #     dados = JSON.Parser.parse(dados)
+    #     dados["cpf"] = cpf
         
         
-        return  JSON.json(dados)
+    #     return  JSON.json(dados)
     end
         
 end
