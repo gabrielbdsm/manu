@@ -37,8 +37,8 @@ route("/criarUser", method = POST) do
     elseif bd_cadrato.verificar_existencia("email",email) == true
       return "email já cadrastado"
     
-    elseif confir_Email.enviar_email(email) != codigo 
-       return "codigo de confirmação incorreto"
+    #elseif confir_Email.enviar_email(email) != codigo 
+       #return "codigo de confirmação incorreto"
 
     elseif (verifcar_num(telefone) == false ) || (length(telefone) != 11)
         return "telefone invalido"
