@@ -37,5 +37,5 @@ end
 end
   
   
-up(parse(Int64, ENV["PORT"]), "0.0.0.0" ,async = false)
+#up(parse(Int64, ENV["PORT"]), "0.0.0.0" ,async = false)
 
