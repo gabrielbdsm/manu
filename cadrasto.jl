@@ -1,4 +1,4 @@
-include("pacotes.jl")
+#include("pacotes.jl")
 using Genie
 using Genie.Router, Genie.Renderer, Genie.Renderer.Html, Genie.Renderer.Json, Genie.Requests
 using JSON
