@@ -17,7 +17,6 @@ using DataFrames
 #     saldo      REAL    DEFAULT (0),
 #     agencia    TEXT
 # )")
-function conectar()
 db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 60 )
 
 DBInterface.execute(db, "use heroku_3761ec7676be692")
@@ -32,7 +31,7 @@ DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
     
                 )AUTO_INCREMENT = 100000000;""")
                 
-end
+
 
 
 function inseir_id(id_cliente)
