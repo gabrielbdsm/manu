@@ -17,7 +17,7 @@ using DataFrames
 #     saldo      REAL    DEFAULT (0),
 #     agencia    TEXT
 # )")
-db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 60 )
+db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 3600 )
 
 DBInterface.execute(db, "use heroku_3761ec7676be692")
 DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
