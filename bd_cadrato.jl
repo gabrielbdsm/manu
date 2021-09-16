@@ -49,8 +49,9 @@ function verificar_existencia(coluna , linha )
 end
 
 function  consultar(coluna , linha)
-     db = conectar()
+    
     if  verificar_existencia(coluna , linha) == true
+     db = conectar()
     select = DBInterface.execute(db, "SELECT * FROM dados WHERE $coluna = '$linha'")
     select = DataFrames.DataFrame(select)
     select= NamedTuple(select[1,:])
