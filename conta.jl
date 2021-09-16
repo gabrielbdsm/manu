@@ -40,7 +40,7 @@ end
 function inseir_id(id_cliente)
     db = conectar()
     DBInterface.execute(db,"INSERT INTO conta(id_cliente ) VALUES ($id_cliente)")
-    DBInterface.close!(db::MySQL.Connection)
+    DBInterface.close!(db)
 end
 
 
@@ -51,7 +51,7 @@ function verificar_existencia(coluna , linha )
             select =DBInterface.execute(db, "SELECT $coluna FROM conta WHERE $coluna = '$linha'")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
-            DBInterface.close!(db::MySQL.Connection)
+            DBInterface.close!(db)
         catch
             return false
         end
@@ -67,7 +67,7 @@ function  consultar(coluna , linha)
     select = DBInterface.execute(db, "SELECT * FROM conta WHERE $coluna = '$linha'")
     select = DataFrames.DataFrame(select)
     select= NamedTuple(select[1,:])
-    DBInterface.close!(db::MySQL.Connection)
+    DBInterface.close!(db)
     return select
    else
         return -1
