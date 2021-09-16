@@ -4,11 +4,9 @@ using MySQL
 using DBInterface
 using DataFrames
 
-
-function conectar()
-db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 360 )
-
+db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 120 )
 DBInterface.execute(db, "use heroku_3761ec7676be692")
+
 DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
 (
     id_cliente INT NOT NULL AUTO_INCREMENT,
@@ -21,24 +19,29 @@ DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
     PRIMARY KEY (id_cliente)
     
                  );""")
-                 
-end
-                 
+DBInterface.close(db)
+
+
 function insert(cpf,nome,senha , email , telefone ,senha_cartao )
-     db = conectar()       
+    db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 120 )
+    DBInterface.execute(db, "use heroku_3761ec7676be692")
+
     DBInterface.execute(db, """INSERT INTO dados(cpf,nome,senha, email, telefone , senha_cartao) VALUES
     ('$cpf','$nome','$senha' ,'$email', '$telefone' ,'$senha_cartao');""")
-      DBInterface.close!(db)           
+    DBInterface.close(db)
 end
 
 
 function verificar_existencia(coluna , linha )
     try
-            db = conectar()
+            db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 120 )
+            DBInterface.execute(db, "use heroku_3761ec7676be692")
+
+
             select =DBInterface.execute(db, "SELECT $coluna FROM dados WHERE $coluna = '$linha'")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
-            DBInterface.close!(db)
+            DBInterface.close(db)
         catch
             return false
         end
@@ -49,13 +52,15 @@ function verificar_existencia(coluna , linha )
 end
 
 function  consultar(coluna , linha)
-    
     if  verificar_existencia(coluna , linha) == true
-     db = conectar()
-    select = DBInterface.execute(db, "SELECT * FROM dados WHERE $coluna = '$linha'")
+
+    db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 120 )
+    DBInterface.execute(db, "use heroku_3761ec7676be692")
+
+    select = DBInterface.execute(db, "SELECT * FROM dados WHERE $coluna = $linha")
     select = DataFrames.DataFrame(select)
     select= NamedTuple(select[1,:])
-    DBInterface.close!(db)
+    DBInterface.close(db)
     return select
    else
         return -1
