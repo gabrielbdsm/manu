@@ -17,6 +17,7 @@ using DataFrames
 #     saldo      REAL    DEFAULT (0),
 #     agencia    TEXT
 # )")
+function conectar()
 db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 3600 )
 
 DBInterface.execute(db, "use heroku_3761ec7676be692")
@@ -31,10 +32,11 @@ DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
     
                 )AUTO_INCREMENT = 100000000;""")
                 
-
+end
 
 
 function inseir_id(id_cliente)
+    conectar()
     DBInterface.execute(db,"INSERT INTO conta(id_cliente ) VALUES ($id_cliente)")
 end
 
@@ -42,7 +44,7 @@ end
 
 function verificar_existencia(coluna , linha )
     try
-        
+            conectar()
             select =DBInterface.execute(db, "SELECT $coluna FROM conta WHERE $coluna = '$linha'")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
