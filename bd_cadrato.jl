@@ -28,7 +28,7 @@ function insert(cpf,nome,senha , email , telefone ,senha_cartao )
      db = conectar()       
     DBInterface.execute(db, """INSERT INTO dados(cpf,nome,senha, email, telefone , senha_cartao) VALUES
     ('$cpf','$nome','$senha' ,'$email', '$telefone' ,'$senha_cartao');""")
-      DBInterface.close!(db::MySQL.Connection)           
+      DBInterface.close!(db)           
 end
 
 
@@ -38,7 +38,7 @@ function verificar_existencia(coluna , linha )
             select =DBInterface.execute(db, "SELECT $coluna FROM dados WHERE $coluna = '$linha'")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
-            DBInterface.close!(db::MySQL.Connection)
+            DBInterface.close!(db)
         catch
             return false
         end
@@ -55,7 +55,7 @@ function  consultar(coluna , linha)
     select = DBInterface.execute(db, "SELECT * FROM dados WHERE $coluna = '$linha'")
     select = DataFrames.DataFrame(select)
     select= NamedTuple(select[1,:])
-    DBInterface.close!(db::MySQL.Connection)
+    DBInterface.close!(db)
     return select
    else
         return -1
