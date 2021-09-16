@@ -35,6 +35,5 @@ route("/login" , method = POST) do
 end
   
 
-up(8002, async = false)
 
 end
