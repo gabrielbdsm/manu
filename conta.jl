@@ -50,7 +50,7 @@ function verificar_existencia(coluna , linha )
             DBInterface.execute(db, "use heroku_3761ec7676be692")
 
 
-            select =DBInterface.execute(db, "SELECT $coluna FROM conta WHERE $coluna = '$linha'")
+            select =DBInterface.execute(db, "SELECT $coluna FROM conta WHERE $coluna = $linha")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
             DBInterface.close(db)
