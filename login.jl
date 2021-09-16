@@ -16,7 +16,7 @@ route("/login" , method = POST) do
     cpf = postpayload(:cpf)
     senha = postpayload(:senha)
     usuario = bd_cadrato.consultar("cpf",cpf)
-  
+    println(usuario)
     if usuario == -1
         return "CPF NÃO cadrastada"
     elseif senha != usuario.senha
