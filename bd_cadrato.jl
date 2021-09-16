@@ -4,7 +4,6 @@ using MySQL
 using DBInterface
 using DataFrames
 
-function conectar()
 db = DBInterface.connect(MySQL.Connection, "us-cdbr-east-04.cleardb.com", "be33b42da89cde", "767dbcfc" , port=3306 , reconnect = true ,connect_timeout = 60 )
 
 DBInterface.execute(db, "use heroku_3761ec7676be692")
@@ -21,7 +20,7 @@ DBInterface.execute(db, """CREATE TABLE IF NOT EXISTS conta
     
                  );""")
                  
-end
+
                  
 function insert(cpf,nome,senha , email , telefone ,senha_cartao )
      conectar()       
@@ -33,7 +32,7 @@ end
 
 function verificar_existencia(coluna , linha )
     try
-            conectar()
+            
             select =DBInterface.execute(db, "SELECT $coluna FROM dados WHERE $coluna = '$linha'")
             select = DataFrames.DataFrame(select)
             select = Tuple(select[1,:])
