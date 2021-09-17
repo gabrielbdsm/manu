@@ -8,7 +8,7 @@ include("bd_cadrato.jl")
 include("login.jl")
 #include("bd_endereco.jl")
 #include("endereco.jl")
-#include("conta.jl")
+include("conta.jl")
 #include("confir_Email.jl")
 
 
@@ -58,8 +58,8 @@ route("/criarUser", method = POST) do
     else
       bd_cadrato.insert(cpf , nome , senha, email , telefone ,senha_cartao)
       println("passou")
-      dados = test_bd.consultar("cpf" , cpf)
-      bd_endereco.inseir_id(dados.id_cliente)
+      dados = bd_cadrato.consultar("cpf" , cpf)
+      #bd_endereco.inseir_id(dados.id_cliente)
       conta.inseir_id(dados.id_cliente)
    end
     return "POST OK"
