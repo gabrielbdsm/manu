@@ -58,9 +58,9 @@ route("/criarUser", method = POST) do
     else
       bd_cadrato.insert(cpf , nome , senha, email , telefone ,senha_cartao)
       println("passou")
-      # dados = test_bd.consultar("cpf" , cpf)
-      # bd_endereco.inseir_id(dados.id_cliente)
-      # conta.inseir_id(dados.id_cliente)
+      dados = test_bd.consultar("cpf" , cpf)
+      bd_endereco.inseir_id(dados.id_cliente)
+      conta.inseir_id(dados.id_cliente)
    end
     return "POST OK"
 
