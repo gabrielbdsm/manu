@@ -6,8 +6,8 @@ using JSONTables
 
 include("bd_cadrato.jl")
 include("login.jl")
-#include("bd_endereco.jl")
-#include("endereco.jl")
+include("bd_endereco.jl")
+include("endereco.jl")
 include("conta.jl")
 #include("confir_Email.jl")
 
