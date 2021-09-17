@@ -25,7 +25,7 @@ route("/criarUser", method = POST) do
     #codigo = postpayload(:codigo)
     telefone = postpayload(:telefone)
     senha_cartao= postpayload(:senha_cartao)
-
+    
 
 
     
@@ -57,7 +57,7 @@ route("/criarUser", method = POST) do
 
     else
       bd_cadrato.insert(cpf , nome , senha, email , telefone ,senha_cartao)
-      println("passou")
+      
       dados = bd_cadrato.consultar("cpf" , cpf)
       bd_endereco.inseir_id(dados.id_cliente)
       conta.inseir_id(dados.id_cliente)
